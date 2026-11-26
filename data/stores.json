@@ -1,0 +1,110 @@
+[
+  {
+    "id": "demo-1",
+    "name": "Le Comptoir Babi — Cocody",
+    "city": "Abidjan",
+    "address": "Cocody — repère de démonstration",
+    "lat": 5.373,
+    "lng": -3.988,
+    "demo": true
+  },
+  {
+    "id": "demo-2",
+    "name": "Le Comptoir Babi — Plateau",
+    "city": "Abidjan",
+    "address": "Plateau — repère de démonstration",
+    "lat": 5.325,
+    "lng": -4.02,
+    "demo": true
+  },
+  {
+    "id": "demo-3",
+    "name": "Le Comptoir Babi — Marcory",
+    "city": "Abidjan",
+    "address": "Marcory — repère de démonstration",
+    "lat": 5.301,
+    "lng": -3.987,
+    "demo": true
+  },
+  {
+    "id": "demo-4",
+    "name": "Le Comptoir Babi — Yopougon",
+    "city": "Abidjan",
+    "address": "Yopougon — repère de démonstration",
+    "lat": 5.344,
+    "lng": -4.078,
+    "demo": true
+  },
+  {
+    "id": "demo-5",
+    "name": "Le Comptoir Babi — Bingerville",
+    "city": "Abidjan",
+    "address": "Bingerville — repère de démonstration",
+    "lat": 5.355,
+    "lng": -3.887,
+    "demo": true
+  },
+  {
+    "id": "demo-6",
+    "name": "Le Comptoir Babi — Centre-ville",
+    "city": "Yamoussoukro",
+    "address": "Centre-ville — repère de démonstration",
+    "lat": 6.827,
+    "lng": -5.289,
+    "demo": true
+  },
+  {
+    "id": "demo-7",
+    "name": "Le Comptoir Babi — Centre-ville",
+    "city": "Bouaké",
+    "address": "Centre-ville — repère de démonstration",
+    "lat": 7.69,
+    "lng": -5.03,
+    "demo": true
+  },
+  {
+    "id": "demo-8",
+    "name": "Le Comptoir Babi — Centre-ville",
+    "city": "San-Pédro",
+    "address": "Centre-ville — repère de démonstration",
+    "lat": 4.748,
+    "lng": -6.637,
+    "demo": true
+  },
+  {
+    "id": "demo-9",
+    "name": "Le Comptoir Babi — Centre-ville",
+    "city": "Korhogo",
+    "address": "Centre-ville — repère de démonstration",
+    "lat": 9.458,
+    "lng": -5.63,
+    "demo": true
+  },
+  {
+    "id": "demo-10",
+    "name": "Le Comptoir Babi — Centre-ville",
+    "city": "Daloa",
+    "address": "Centre-ville — repère de démonstration",
+    "lat": 6.877,
+    "lng": -6.45,
+    "demo": true
+  },
+  {
+    "id": "demo-11",
+    "name": "Le Comptoir Babi — Centre-ville",
+    "city": "Man",
+    "address": "Centre-ville — repère de démonstration",
+    "lat": 7.412,
+    "lng": -7.554,
+    "demo": true
+  },
+  {
+    "id": "demo-12",
+    "name": "Le Comptoir Babi — Centre-ville",
+    "city": "Grand-Bassam",
+    "address": "Centre-ville — repère de démonstration",
+    "lat": 5.211,
+    "lng": -3.738,
+    "demo": true
+  }
+]

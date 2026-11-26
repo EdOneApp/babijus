@@ -1,0 +1,3 @@
+'use client';
+import {useEffect,useRef} from 'react';import {usePathname} from 'next/navigation';
+export default function Reveal(){const path=usePathname();const cleanup=useRef<()=>void>(()=>{});useEffect(()=>{cleanup.current();if(matchMedia('(prefers-reduced-motion: reduce)').matches)return;const elements=document.querySelectorAll<HTMLElement>('[data-reveal]');const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('revealed');observer.unobserve(e.target)}}),{threshold:.08});elements.forEach(e=>{e.classList.add('will-reveal');observer.observe(e)});cleanup.current=()=>{observer.disconnect();elements.forEach(e=>e.classList.remove('will-reveal'))};return cleanup.current},[path]);return null}

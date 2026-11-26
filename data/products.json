@@ -1,0 +1,488 @@
+[
+  {
+    "id": "bissap",
+    "name": "Bissap",
+    "color": "#A71545",
+    "tastingNotes": "Fruité · floral",
+    "ingredientConcept": "Hibiscus",
+    "label": "assets/labels/bissap.svg",
+    "model": "assets/models/bissap.glb",
+    "photo": "assets/products/bissap.png",
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "bissap",
+        "image": "assets/ingredients/bissap.png",
+        "imageWeb": "assets/web/ingredients/bissap.webp"
+      }
+    ],
+    "photoWeb": "assets/web/products/bissap.webp"
+  },
+  {
+    "id": "gnamakoudji",
+    "name": "Gnamakoudji",
+    "color": "#DDB05B",
+    "tastingNotes": "Vif · épicé",
+    "ingredientConcept": "Gingembre",
+    "label": "assets/labels/gnamakoudji.svg",
+    "model": "assets/models/gnamakoudji.glb",
+    "photo": "assets/products/gnamakoudji.png",
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "gingembre",
+        "image": "assets/ingredients/gingembre.png",
+        "imageWeb": "assets/web/ingredients/gingembre.webp"
+      }
+    ],
+    "photoWeb": "assets/web/products/gnamakoudji.webp"
+  },
+  {
+    "id": "ananas",
+    "name": "Ananas",
+    "color": "#F7BC27",
+    "tastingNotes": "Solaire · acidulé",
+    "ingredientConcept": "Ananas",
+    "label": "assets/labels/ananas.svg",
+    "model": "assets/models/ananas.glb",
+    "photo": "assets/products/ananas.png",
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "ananas",
+        "image": "assets/ingredients/ananas.png",
+        "imageWeb": "assets/web/ingredients/ananas.webp"
+      }
+    ],
+    "photoWeb": "assets/web/products/ananas.webp"
+  },
+  {
+    "id": "mangue",
+    "name": "Mangue",
+    "color": "#F58B29",
+    "tastingNotes": "Rond · généreux",
+    "ingredientConcept": "Mangue",
+    "label": "assets/labels/mangue.svg",
+    "model": "assets/models/mangue.glb",
+    "photo": "assets/products/mangue.png",
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "mangue",
+        "image": "assets/ingredients/mangue.png",
+        "imageWeb": "assets/web/ingredients/mangue.webp"
+      }
+    ],
+    "photoWeb": "assets/web/products/mangue.webp"
+  },
+  {
+    "id": "tomi",
+    "name": "Tomi",
+    "color": "#9B552F",
+    "tastingNotes": "Doux · acidulé",
+    "ingredientConcept": "Tamarin",
+    "label": "assets/labels/tomi.svg",
+    "model": "assets/models/tomi.glb",
+    "photo": "assets/products/tomi.png",
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "tamarin",
+        "image": "assets/ingredients/tamarin.png",
+        "imageWeb": "assets/web/ingredients/tamarin.webp"
+      }
+    ],
+    "photoWeb": "assets/web/products/tomi.webp"
+  },
+  {
+    "id": "bouye",
+    "name": "Bouye",
+    "color": "#DED0AA",
+    "tastingNotes": "Velouté · délicat",
+    "ingredientConcept": "Baobab",
+    "label": "assets/labels/bouye.svg",
+    "model": "assets/models/bouye.glb",
+    "photo": "assets/products/bouye.png",
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "baobab",
+        "image": "assets/ingredients/baobab.png",
+        "imageWeb": "assets/web/ingredients/baobab.webp"
+      }
+    ],
+    "photoWeb": "assets/web/products/bouye.webp"
+  },
+  {
+    "id": "passion",
+    "name": "Passion",
+    "color": "#EAA11C",
+    "tastingNotes": "Intense · parfumé",
+    "ingredientConcept": "Fruit de la passion",
+    "label": "assets/labels/passion.svg",
+    "model": "assets/models/passion.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "passion",
+        "image": "assets/ingredients/passion.png",
+        "imageWeb": "assets/web/ingredients/passion.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "goyave",
+    "name": "Goyave",
+    "color": "#EF8C8D",
+    "tastingNotes": "Doux · parfumé",
+    "ingredientConcept": "Goyave",
+    "label": "assets/labels/goyave.svg",
+    "model": "assets/models/goyave.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "goyave",
+        "image": "assets/ingredients/goyave.png",
+        "imageWeb": "assets/web/ingredients/goyave.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "corossol",
+    "name": "Corossol",
+    "color": "#E7E6BE",
+    "tastingNotes": "Crémeux · tropical",
+    "ingredientConcept": "Corossol",
+    "label": "assets/labels/corossol.svg",
+    "model": "assets/models/corossol.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "corossol",
+        "image": "assets/ingredients/corossol.png",
+        "imageWeb": "assets/web/ingredients/corossol.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "coco",
+    "name": "Coco",
+    "color": "#DCE8D5",
+    "tastingNotes": "Léger · tropical",
+    "ingredientConcept": "Noix de coco",
+    "label": "assets/labels/coco.svg",
+    "model": "assets/models/coco.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "coco",
+        "image": "assets/ingredients/coco.png",
+        "imageWeb": "assets/web/ingredients/coco.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "orange",
+    "name": "Orange",
+    "color": "#FA9B25",
+    "tastingNotes": "Vif · solaire",
+    "ingredientConcept": "Orange",
+    "label": "assets/labels/orange.svg",
+    "model": "assets/models/orange.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "orange",
+        "image": "assets/ingredients/orange.png",
+        "imageWeb": "assets/web/ingredients/orange.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "citron",
+    "name": "Citron",
+    "color": "#C9D83A",
+    "tastingNotes": "Frais · acidulé",
+    "ingredientConcept": "Citron",
+    "label": "assets/labels/citron.svg",
+    "model": "assets/models/citron.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "citron",
+        "image": "assets/ingredients/citron.png",
+        "imageWeb": "assets/web/ingredients/citron.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "papaye",
+    "name": "Papaye",
+    "color": "#F48F69",
+    "tastingNotes": "Rond · fruité",
+    "ingredientConcept": "Papaye",
+    "label": "assets/labels/papaye.svg",
+    "model": "assets/models/papaye.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "papaye",
+        "image": "assets/ingredients/papaye.png",
+        "imageWeb": "assets/web/ingredients/papaye.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "pasteque",
+    "name": "Pastèque",
+    "color": "#F16175",
+    "tastingNotes": "Léger · fruité",
+    "ingredientConcept": "Pastèque",
+    "label": "assets/labels/pasteque.svg",
+    "model": "assets/models/pasteque.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "pasteque",
+        "image": "assets/ingredients/pasteque.png",
+        "imageWeb": "assets/web/ingredients/pasteque.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "canne",
+    "name": "Canne à sucre",
+    "color": "#CCD692",
+    "tastingNotes": "Végétal · doux",
+    "ingredientConcept": "Canne à sucre",
+    "label": "assets/labels/canne.svg",
+    "model": "assets/models/canne.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "canne",
+        "image": "assets/ingredients/canne.png",
+        "imageWeb": "assets/web/ingredients/canne.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "madd",
+    "name": "Madd",
+    "color": "#E5A93F",
+    "tastingNotes": "Pulpeux · acidulé",
+    "ingredientConcept": "Madd",
+    "label": "assets/labels/madd.svg",
+    "model": "assets/models/madd.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "madd",
+        "image": "assets/ingredients/madd.png",
+        "imageWeb": "assets/web/ingredients/madd.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "ditakh",
+    "name": "Ditakh",
+    "color": "#7A9C52",
+    "tastingNotes": "Végétal · acidulé",
+    "ingredientConcept": "Ditakh",
+    "label": "assets/labels/ditakh.svg",
+    "model": "assets/models/ditakh.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "ditakh",
+        "image": "assets/ingredients/ditakh.png",
+        "imageWeb": "assets/web/ingredients/ditakh.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "pomme-cajou",
+    "name": "Pomme de cajou",
+    "color": "#E7B652",
+    "tastingNotes": "Parfumé · singulier",
+    "ingredientConcept": "Pomme de cajou",
+    "label": "assets/labels/pomme-cajou.svg",
+    "model": "assets/models/pomme-cajou.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "pomme-cajou",
+        "image": "assets/ingredients/pomme-cajou.png",
+        "imageWeb": "assets/web/ingredients/pomme-cajou.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "ananas-gingembre",
+    "name": "Ananas gingembre",
+    "color": "#E8AD34",
+    "tastingNotes": "Solaire · piquant",
+    "ingredientConcept": "Ananas / gingembre",
+    "label": "assets/labels/ananas-gingembre.svg",
+    "model": "assets/models/ananas-gingembre.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "ananas",
+        "image": "assets/ingredients/ananas.png",
+        "imageWeb": "assets/web/ingredients/ananas.webp"
+      },
+      {
+        "id": "gingembre",
+        "image": "assets/ingredients/gingembre.png",
+        "imageWeb": "assets/web/ingredients/gingembre.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "bissap-gingembre",
+    "name": "Bissap gingembre",
+    "color": "#B53051",
+    "tastingNotes": "Floral · piquant",
+    "ingredientConcept": "Hibiscus / gingembre",
+    "label": "assets/labels/bissap-gingembre.svg",
+    "model": "assets/models/bissap-gingembre.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "bissap",
+        "image": "assets/ingredients/bissap.png",
+        "imageWeb": "assets/web/ingredients/bissap.webp"
+      },
+      {
+        "id": "gingembre",
+        "image": "assets/ingredients/gingembre.png",
+        "imageWeb": "assets/web/ingredients/gingembre.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "mangue-passion",
+    "name": "Mangue passion",
+    "color": "#F09C23",
+    "tastingNotes": "Rond · intense",
+    "ingredientConcept": "Mangue / passion",
+    "label": "assets/labels/mangue-passion.svg",
+    "model": "assets/models/mangue-passion.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "mangue",
+        "image": "assets/ingredients/mangue.png",
+        "imageWeb": "assets/web/ingredients/mangue.webp"
+      },
+      {
+        "id": "passion",
+        "image": "assets/ingredients/passion.png",
+        "imageWeb": "assets/web/ingredients/passion.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "citron-menthe",
+    "name": "Citron menthe",
+    "color": "#A8CA62",
+    "tastingNotes": "Frais · végétal",
+    "ingredientConcept": "Citron / menthe",
+    "label": "assets/labels/citron-menthe.svg",
+    "model": "assets/models/citron-menthe.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "citron",
+        "image": "assets/ingredients/citron.png",
+        "imageWeb": "assets/web/ingredients/citron.webp"
+      },
+      {
+        "id": "menthe",
+        "image": "assets/ingredients/menthe.png",
+        "imageWeb": "assets/web/ingredients/menthe.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "carotte-orange",
+    "name": "Carotte orange",
+    "color": "#ED7F2B",
+    "tastingNotes": "Doux · solaire",
+    "ingredientConcept": "Carotte / orange",
+    "label": "assets/labels/carotte-orange.svg",
+    "model": "assets/models/carotte-orange.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "carotte",
+        "image": "assets/ingredients/carotte.png",
+        "imageWeb": "assets/web/ingredients/carotte.webp"
+      },
+      {
+        "id": "orange",
+        "image": "assets/ingredients/orange.png",
+        "imageWeb": "assets/web/ingredients/orange.webp"
+      }
+    ],
+    "photoWeb": null
+  },
+  {
+    "id": "ananas-coco",
+    "name": "Ananas coco",
+    "color": "#EBD69A",
+    "tastingNotes": "Doux · tropical",
+    "ingredientConcept": "Ananas / coco",
+    "label": "assets/labels/ananas-coco.svg",
+    "model": "assets/models/ananas-coco.glb",
+    "photo": null,
+    "status": "concept — recette, stock et étiquetage à valider",
+    "ingredients": [
+      {
+        "id": "ananas",
+        "image": "assets/ingredients/ananas.png",
+        "imageWeb": "assets/web/ingredients/ananas.webp"
+      },
+      {
+        "id": "coco",
+        "image": "assets/ingredients/coco.png",
+        "imageWeb": "assets/web/ingredients/coco.webp"
+      }
+    ],
+    "photoWeb": null
+  }
+]

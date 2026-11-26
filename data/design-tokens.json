@@ -1,0 +1,9 @@
+{
+  "brand": "BABI JUS",
+  "status": "nom de maquette",
+  "colors": {"forest": "#134833", "cream": "#FFF4D9", "coral": "#F15A32"},
+  "type": {"display": "Georgia, serif", "body": "Arial, sans-serif"},
+  "radii": {"button": "999px", "photo": "4px"},
+  "breakpoints": {"mobile": 767, "tablet": 1023},
+  "motion": {"hoverMs": 180, "revealMs": 650, "staggerMs": 60, "maxPixelRatio": 1.6}
+}

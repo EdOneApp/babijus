@@ -1,0 +1,227 @@
+{
+  "products": 24,
+  "models": 24,
+  "ingredientImages": [
+    {
+      "file": "assets/ingredients/carotte.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/ananas.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/corossol.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/goyave.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/papaye.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/bissap.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha": [
+        0,
+        254
+      ]
+    },
+    {
+      "file": "assets/ingredients/menthe.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/pasteque.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/passion.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/tamarin.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/orange.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/gingembre.png",
+      "size": [
+        1536,
+        1024
+      ],
+      "alpha": [
+        0,
+        254
+      ]
+    },
+    {
+      "file": "assets/ingredients/pomme-cajou.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/coco.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/canne.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/mangue.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/madd.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/citron.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/ditakh.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    },
+    {
+      "file": "assets/ingredients/baobab.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "alpha": [
+        0,
+        255
+      ]
+    }
+  ],
+  "errors": []
+}

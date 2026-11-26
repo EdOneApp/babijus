@@ -1,0 +1,16 @@
+{
+  "spriteCount": 7,
+  "radius": 0.82,
+  "verticalSpan": 2.5,
+  "turns": 1.6,
+  "scrollTurns": 2,
+  "billboard": true,
+  "reducedMotion": "static composition",
+  "axis": "Y",
+  "depthOcclusion": true,
+  "sizeRange": [
+    0.28,
+    0.48
+  ],
+  "note": "Sprites PNG avec profondeur 3D, pas mod\u00e8les volum\u00e9triques des fruits."
+}

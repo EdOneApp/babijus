@@ -1,0 +1,2 @@
+const fs=require('fs'),path=require('path');const sharp=require('/Users/danielmac/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/sharp');
+(async()=>{const root=path.resolve(__dirname,'..');for(const p of fs.readdirSync(path.join(root,'assets/labels')).filter(x=>x.endsWith('.svg'))){await sharp(path.join(root,'assets/labels',p)).png().toFile(path.join(root,'assets/labels',p.replace('.svg','.png')));}console.log('24 PNG labels rendered');})();
