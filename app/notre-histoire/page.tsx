@@ -1,2 +1,119 @@
-import type {Metadata} from 'next';import Image from 'next/image';import {Eyebrow,ButtonLink,Flower} from '@/components/ui';export const metadata:Metadata={title:'L’esprit Babi'};
-export default function Story(){return <><section className="page-hero story-hero"><Eyebrow>IL Y A DES GOÛTS QUI NOUS RASSEMBLENT</Eyebrow><h1>Ça vient<br/><em>de chez nous.</em></h1><p>Une envie simple : mettre les saveurs qu’on aime au centre de la table.</p><Flower/></section><section className="story-wide-photo"><Image src="/assets/web/lifestyle/fruits-marche.webp" alt="Fruits tropicaux, tamarin et gingembre" fill sizes="100vw" priority/></section><section className="story-manifesto section-space"><Eyebrow>L’ESPRIT BABI</Eyebrow><h2 data-reveal>Le bissap des grandes tablées.<br/>Le gingembre qui réveille.<br/>L’ananas qui sent le soleil.<br/><em>Et l’envie de tout partager.</em></h2><div className="manifesto-copy"><p>On connaît ces parfums. Ils nous accompagnent dans les conversations, les pauses et les retrouvailles. BABI JUS est né de l’envie de leur faire une belle place.</p><p>Une identité qui emprunte l’énergie d’Abidjan, une collection ouverte sur les saveurs d’Afrique, et une conviction : les plaisirs simples méritent qu’on s’y attarde.</p></div></section><section className="values-section"><div data-reveal><span>01</span><h3>Le goût,<br/><em>d’abord.</em></h3><p>Des saveurs avec une personnalité. À découvrir, à comparer, à choisir selon son envie.</p></div><div data-reveal><span>02</span><h3>L’esprit<br/><em>de partage.</em></h3><p>Une bouteille, une pause, une conversation. Les meilleurs moments n’en demandent pas plus.</p></div><div data-reveal><span>03</span><h3>La curiosité,<br/><em>toujours.</em></h3><p>Redécouvrir un classique ou rencontrer un nouveau fruit. On te laisse suivre tes papilles.</p></div></section><section className="full-photo"><Image src="/assets/web/lifestyle/abidjan-terrasse.webp" alt="Une pause conviviale autour de jus" fill sizes="100vw"/><div><Eyebrow>ET SI ON PRENAIT LE TEMPS ?</Eyebrow><h2>Une pause.<br/><em>Un vrai moment.</em></h2></div></section><section className="center-cta section-space"><Eyebrow>À TOI DE CHOISIR</Eyebrow><h2>L’histoire continue<br/><em>avec ta saveur.</em></h2><ButtonLink href="/nos-jus">Découvrir les jus</ButtonLink></section></>}
+import type { Metadata } from "next";
+import Image from "next/image";
+import { Eyebrow, ButtonLink, Flower } from "@/components/ui";
+export const metadata: Metadata = { title: "L’esprit Babi" };
+export default function Story() {
+  return (
+    <>
+      <section className="page-hero story-hero">
+        <Eyebrow>IL Y A DES GOÛTS QUI NOUS RASSEMBLENT</Eyebrow>
+        <h1>
+          Ça vient
+          <br />
+          <em>de chez nous.</em>
+        </h1>
+        <p>
+          Une envie simple : mettre les saveurs qu’on aime au centre de la
+          table.
+        </p>
+        <Flower />
+      </section>
+      <section className="story-wide-photo">
+        <Image
+          src="/assets/web/lifestyle/fruits-marche.webp"
+          alt="Fruits tropicaux, tamarin et gingembre"
+          fill
+          sizes="100vw"
+          priority
+        />
+      </section>
+      <section className="story-manifesto section-space">
+        <Eyebrow>L’ESPRIT BABI</Eyebrow>
+        <h2 data-reveal>
+          Le bissap des grandes tablées.
+          <br />
+          Le gingembre qui réveille.
+          <br />
+          L’ananas qui sent le soleil.
+          <br />
+          <em>Et l’envie de tout partager.</em>
+        </h2>
+        <div className="manifesto-copy">
+          <p>
+            On connaît ces parfums. Ils nous accompagnent dans les
+            conversations, les pauses et les retrouvailles. BABI JUS est né de
+            l’envie de leur faire une belle place.
+          </p>
+          <p>
+            Une identité qui emprunte l’énergie d’Abidjan, une collection
+            ouverte sur les saveurs d’Afrique, et une conviction : les plaisirs
+            simples méritent qu’on s’y attarde.
+          </p>
+        </div>
+      </section>
+      <section className="values-section">
+        <div data-reveal>
+          <span>01</span>
+          <h3>
+            Le goût,
+            <br />
+            <em>d’abord.</em>
+          </h3>
+          <p>
+            Des saveurs avec une personnalité. À découvrir, à comparer, à
+            choisir selon son envie.
+          </p>
+        </div>
+        <div data-reveal>
+          <span>02</span>
+          <h3>
+            L’esprit
+            <br />
+            <em>de partage.</em>
+          </h3>
+          <p>
+            Une bouteille, une pause, une conversation. Les meilleurs moments
+            n’en demandent pas plus.
+          </p>
+        </div>
+        <div data-reveal>
+          <span>03</span>
+          <h3>
+            La curiosité,
+            <br />
+            <em>toujours.</em>
+          </h3>
+          <p>
+            Redécouvrir un classique ou rencontrer un nouveau fruit. On te
+            laisse suivre tes papilles.
+          </p>
+        </div>
+      </section>
+      <section className="full-photo">
+        <Image
+          src="/assets/web/lifestyle/abidjan-terrasse.webp"
+          alt="Une pause conviviale autour de jus"
+          fill
+          sizes="100vw"
+        />
+        <div>
+          <Eyebrow>ET SI ON PRENAIT LE TEMPS ?</Eyebrow>
+          <h2>
+            Une pause.
+            <br />
+            <em>Un vrai moment.</em>
+          </h2>
+        </div>
+      </section>
+      <section className="center-cta section-space">
+        <Eyebrow>À TOI DE CHOISIR</Eyebrow>
+        <h2>
+          L’histoire continue
+          <br />
+          <em>avec ta saveur.</em>
+        </h2>
+        <ButtonLink href="/nos-jus">Découvrir les jus</ButtonLink>
+      </section>
+    </>
+  );
+}

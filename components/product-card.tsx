@@ -1,2 +1,46 @@
-import Link from 'next/link';import Image from 'next/image';import {ArrowUpRight} from 'lucide-react';import {Product,productImage} from '@/lib/products';
-export default function ProductCard({product:p,index=0}:{product:Product;index?:number}){return <Link href={`/nos-jus/${p.id}`} className="product-card" style={{'--product-color':p.color,'--card-order':index%4} as React.CSSProperties}><div className="product-card-visual"><span className="product-card-number">{String(index+1).padStart(2,'0')}</span><span className="product-card-halo"/><Image src={productImage(p)} alt={`Bouteille ${p.name}`} width={600} height={900} sizes="(max-width:767px) 45vw, (max-width:1023px) 30vw, 24vw" unoptimized={!p.photoWeb}/><span className="product-card-arrow"><ArrowUpRight size={22}/></span></div><div className="product-card-copy"><h3>{p.name}</h3><p>{p.tastingNotes}</p></div></Link>}
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { Product, productImage } from "@/lib/products";
+export default function ProductCard({
+  product: p,
+  index = 0,
+}: {
+  product: Product;
+  index?: number;
+}) {
+  return (
+    <Link
+      href={`/nos-jus/${p.id}`}
+      className="product-card"
+      style={
+        {
+          "--product-color": p.color,
+          "--card-order": index % 4,
+        } as React.CSSProperties
+      }
+    >
+      <div className="product-card-visual">
+        <span className="product-card-number">
+          {String(index + 1).padStart(2, "0")}
+        </span>
+        <span className="product-card-halo" />
+        <Image
+          src={productImage(p)}
+          alt={`Bouteille ${p.name}`}
+          width={600}
+          height={900}
+          sizes="(max-width:767px) 45vw, (max-width:1023px) 30vw, 24vw"
+          unoptimized={!p.photoWeb}
+        />
+        <span className="product-card-arrow">
+          <ArrowUpRight size={22} />
+        </span>
+      </div>
+      <div className="product-card-copy">
+        <h3>{p.name}</h3>
+        <p>{p.tastingNotes}</p>
+      </div>
+    </Link>
+  );
+}

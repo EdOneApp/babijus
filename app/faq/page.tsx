@@ -1,1 +1,39 @@
-import type {Metadata} from 'next';import {faqs} from '@/lib/faq';import {Eyebrow,ButtonLink} from '@/components/ui';export const metadata:Metadata={title:'Les petites questions'};export default function FAQ(){return <><section className="page-hero"><Eyebrow>ON TE RÉPOND SIMPLEMENT</Eyebrow><h1>Les petites<br/><em>questions.</em></h1><p>Pour que le plaisir reste simple.</p></section><section className="faq-list">{faqs.map((f,i)=><details key={f.q}><summary><span>0{i+1}</span>{f.q}<b>+</b></summary><p>{f.a}</p></details>)}</section><section className="center-cta section-space"><h2>Encore une<br/><em>petite question ?</em></h2><ButtonLink href="/contact">On est là</ButtonLink></section></>}
+import type { Metadata } from "next";
+import { faqs } from "@/lib/faq";
+import { Eyebrow, ButtonLink } from "@/components/ui";
+export const metadata: Metadata = { title: "Les petites questions" };
+export default function FAQ() {
+  return (
+    <>
+      <section className="page-hero">
+        <Eyebrow>ON TE RÉPOND SIMPLEMENT</Eyebrow>
+        <h1>
+          Les petites
+          <br />
+          <em>questions.</em>
+        </h1>
+        <p>Pour que le plaisir reste simple.</p>
+      </section>
+      <section className="faq-list">
+        {faqs.map((f, i) => (
+          <details key={f.q}>
+            <summary>
+              <span>0{i + 1}</span>
+              {f.q}
+              <b>+</b>
+            </summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </section>
+      <section className="center-cta section-space">
+        <h2>
+          Encore une
+          <br />
+          <em>petite question ?</em>
+        </h2>
+        <ButtonLink href="/contact">On est là</ButtonLink>
+      </section>
+    </>
+  );
+}

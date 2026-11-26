@@ -1,10 +1,322 @@
-'use client';
-import {useEffect,useRef,useState} from 'react';import Link from 'next/link';import {Search,LocateFixed,ArrowUpRight,MapPin,Plus,Minus,Map as MapIcon} from 'lucide-react';import type * as LTypes from 'leaflet';import {stores,cities,distanceKm,Store} from '@/lib/stores';
-const normalized=(s:string)=>s.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
-export default function StoreMap(){const container=useRef<HTMLDivElement>(null),map=useRef<LTypes.Map|null>(null),markers=useRef<Map<string,LTypes.Marker>>(new Map());const [query,setQuery]=useState(''),[city,setCity]=useState(cities[0].name),[selected,setSelected]=useState<string|null>(null),[position,setPosition]=useState<{lat:number;lng:number}|null>(null),[notice,setNotice]=useState(''),[ready,setReady]=useState(false);const [locationBusy,setLocationBusy]=useState(false);const filtered=stores.filter(s=>(city===cities[0].name||s.city===city)&&normalized(`${s.name} ${s.address} ${s.city}`).includes(normalized(query))).sort((a,b)=>position?distanceKm(position,a)-distanceKm(position,b):0);
-useEffect(()=>{let disposed=false;const mark=markers.current;import('leaflet').then(async L=>{if(disposed||!container.current)return;const m=L.map(container.current,{center:[7.54,-5.55],zoom:7,zoomControl:false,scrollWheelZoom:false});map.current=m;L.tileLayer(process.env.NEXT_PUBLIC_MAP_TILES||'https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',maxZoom:18}).on('tileerror',()=>setNotice('Le fond de carte est momentanément indisponible. La liste reste accessible.')).addTo(m);for(const s of stores){const icon=L.divIcon({className:'babi-pin',html:'<span>b.</span>',iconSize:[40,48],iconAnchor:[20,45]});const marker=L.marker([s.lat,s.lng],{icon,title:s.name+' — point fictif'}).addTo(m);const popup=document.createElement('div');const strong=document.createElement('strong');strong.textContent=s.name;popup.append(strong,document.createElement('br'),document.createTextNode('Point de démonstration · '+s.city));marker.bindPopup(popup);marker.on('click',()=>setSelected(s.id));mark.set(s.id,marker)}try{const geo=await fetch('/maps/cote-ivoire.geojson').then(r=>r.json());if(!disposed)L.geoJSON(geo,{style:{color:'#174c39',weight:2,fillColor:'#a4bf85',fillOpacity:.08,interactive:false}}).addTo(m)}catch{}if(!disposed)setReady(true)}).catch(()=>setNotice('La carte ne peut pas se charger. Tu peux consulter les adresses dans la liste.'));return()=>{disposed=true;map.current?.remove();map.current=null;mark.clear()}},[]);
-useEffect(()=>{if(!ready||!map.current)return;const c=cities.find(c=>c.name===city)||(()=>{const s=stores.find(s=>s.city===city);return s?{lat:s.lat,lng:s.lng,zoom:12}:null})();if(c)map.current.setView([c.lat,c.lng],c.zoom,{animate:!matchMedia('(prefers-reduced-motion: reduce)').matches});},[city,ready]);
-useEffect(()=>{if(!ready||!map.current)return;const m=map.current;for(const s of stores){const marker=markers.current.get(s.id);if(!marker)continue;const show=filtered.some(x=>x.id===s.id);if(show&&!m.hasLayer(marker))marker.addTo(m);else if(!show&&m.hasLayer(marker))marker.remove()}},[city,query,ready]);
-function select(s:Store){setSelected(s.id);map.current?.setView([s.lat,s.lng],14,{animate:!matchMedia('(prefers-reduced-motion: reduce)').matches});markers.current.get(s.id)?.openPopup()}
-function locate(){if(!navigator.geolocation){setNotice('La localisation n’est pas disponible sur cet appareil. Choisis ta ville.');return}setLocationBusy(true);navigator.geolocation.getCurrentPosition(async p=>{const pos={lat:p.coords.latitude,lng:p.coords.longitude};setPosition(pos);setCity(cities[0].name);setLocationBusy(false);setNotice('La liste est triée par distance. Les points affichés sont fictifs.');if(map.current){const L=await import('leaflet');L.circleMarker([pos.lat,pos.lng],{radius:8,color:'#fff',fillColor:'#396fe3',fillOpacity:1,weight:3}).addTo(map.current).bindTooltip('Ta position');map.current.setView([pos.lat,pos.lng],10)}},e=>{setLocationBusy(false);setNotice(e.code===1?'La localisation n’a pas été autorisée. Choisis simplement ta ville.':'Ta position n’a pas pu être déterminée. Choisis ta ville.')},{timeout:10000,maximumAge:60000})}
-return <div className="locator"><div className="demo-notice"><span>DÉMONSTRATION</span> Ces {stores.length} points sont fictifs. Ils illustrent le futur réseau et ne sont pas des lieux de vente réels.</div><div className="locator-toolbar"><label className="search-field"><Search size={18}/><input placeholder="Une ville, un quartier…" aria-label="Rechercher un point de démonstration" value={query} onChange={e=>setQuery(e.target.value)}/></label><select aria-label="Choisir une ville" value={city} onChange={e=>setCity(e.target.value)}>{cities.map(c=><option key={c.name}>{c.name}</option>)}{['Daloa','Man','Grand-Bassam'].map(c=><option key={c}>{c}</option>)}</select><button className="location-button" onClick={locate} disabled={locationBusy}><LocateFixed size={17}/>{locationBusy?'Localisation…':'Autour de moi'}</button></div>{notice&&<p className="map-notice" role="status">{notice}</p>}<div className="locator-body"><div className="store-list"><p className="results-count" aria-live="polite">{filtered.length} point{filtered.length>1?'s':''} de démonstration</p>{filtered.map(s=><button key={s.id} className={`store-card ${selected===s.id?'is-selected':''}`} onClick={()=>select(s)}><div><span className="store-badge">POINT FICTIF</span>{position&&<small>{distanceKm(position,s).toFixed(1)} km</small>}</div><h3>{s.name}</h3><p><MapPin size={14}/>{s.city}</p><p>{s.address}</p><span className="store-view">Voir sur la carte <ArrowUpRight size={16}/></span></button>)}{!filtered.length&&<div className="empty-state"><MapPin/><h3>Aucun point pour cette recherche.</h3><button className="text-link" onClick={()=>{setCity(cities[0].name);setQuery('')}}>Effacer les filtres</button></div>}</div><div className="map-frame"><div className="map-canvas" ref={container} aria-label="Carte des points de démonstration en Côte d’Ivoire"/>{!ready&&<div className="map-loading"><MapIcon/><p>La Côte d’Ivoire se dessine…</p></div>}<div className="map-controls"><button onClick={()=>map.current?.zoomIn()} aria-label="Zoomer sur la carte"><Plus size={20}/></button><button onClick={()=>map.current?.zoomOut()} aria-label="Dézoomer sur la carte"><Minus size={20}/></button></div><span className="map-demo-label">ADRESSES FICTIVES · APERÇU DU RÉSEAU</span></div></div><p className="map-privacy">La localisation est facultative, utilisée uniquement dans ton navigateur et n’est pas enregistrée. Fond de carte : OpenStreetMap · Frontières : Natural Earth.</p></div>}
+"use client";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
+import {
+  Search,
+  LocateFixed,
+  ArrowUpRight,
+  MapPin,
+  Plus,
+  Minus,
+  Map as MapIcon,
+} from "lucide-react";
+import type * as LTypes from "leaflet";
+import { stores, cities, distanceKm, Store } from "@/lib/stores";
+const normalized = (s: string) =>
+  s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+export default function StoreMap() {
+  const container = useRef<HTMLDivElement>(null),
+    map = useRef<LTypes.Map | null>(null),
+    markers = useRef<Map<string, LTypes.Marker>>(new Map());
+  const [query, setQuery] = useState(""),
+    [city, setCity] = useState(cities[0].name),
+    [selected, setSelected] = useState<string | null>(null),
+    [position, setPosition] = useState<{ lat: number; lng: number } | null>(
+      null,
+    ),
+    [notice, setNotice] = useState(""),
+    [ready, setReady] = useState(false);
+  const [locationBusy, setLocationBusy] = useState(false);
+  const filtered = stores
+    .filter(
+      (s) =>
+        (city === cities[0].name || s.city === city) &&
+        normalized(`${s.name} ${s.address} ${s.city}`).includes(
+          normalized(query),
+        ),
+    )
+    .sort((a, b) =>
+      position ? distanceKm(position, a) - distanceKm(position, b) : 0,
+    );
+  useEffect(() => {
+    let disposed = false;
+    const mark = markers.current;
+    import("leaflet")
+      .then(async (L) => {
+        if (disposed || !container.current) return;
+        const m = L.map(container.current, {
+          center: [7.54, -5.55],
+          zoom: 7,
+          zoomControl: false,
+          scrollWheelZoom: false,
+        });
+        map.current = m;
+        L.tileLayer(
+          process.env.NEXT_PUBLIC_MAP_TILES ||
+            "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+          {
+            attribution:
+              '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+            maxZoom: 18,
+          },
+        )
+          .on("tileerror", () =>
+            setNotice(
+              "Le fond de carte est momentanément indisponible. La liste reste accessible.",
+            ),
+          )
+          .addTo(m);
+        for (const s of stores) {
+          const icon = L.divIcon({
+            className: "babi-pin",
+            html: "<span>b.</span>",
+            iconSize: [40, 48],
+            iconAnchor: [20, 45],
+          });
+          const marker = L.marker([s.lat, s.lng], {
+            icon,
+            title: s.name + " — point fictif",
+          }).addTo(m);
+          const popup = document.createElement("div");
+          const strong = document.createElement("strong");
+          strong.textContent = s.name;
+          popup.append(
+            strong,
+            document.createElement("br"),
+            document.createTextNode("Point de démonstration · " + s.city),
+          );
+          marker.bindPopup(popup);
+          marker.on("click", () => setSelected(s.id));
+          mark.set(s.id, marker);
+        }
+        try {
+          const geo = await fetch("/maps/cote-ivoire.geojson").then((r) =>
+            r.json(),
+          );
+          if (!disposed)
+            L.geoJSON(geo, {
+              style: {
+                color: "#174c39",
+                weight: 2,
+                fillColor: "#a4bf85",
+                fillOpacity: 0.08,
+                interactive: false,
+              },
+            }).addTo(m);
+        } catch {}
+        if (!disposed) setReady(true);
+      })
+      .catch(() =>
+        setNotice(
+          "La carte ne peut pas se charger. Tu peux consulter les adresses dans la liste.",
+        ),
+      );
+    return () => {
+      disposed = true;
+      map.current?.remove();
+      map.current = null;
+      mark.clear();
+    };
+  }, []);
+  useEffect(() => {
+    if (!ready || !map.current) return;
+    const c =
+      cities.find((c) => c.name === city) ||
+      (() => {
+        const s = stores.find((s) => s.city === city);
+        return s ? { lat: s.lat, lng: s.lng, zoom: 12 } : null;
+      })();
+    if (c)
+      map.current.setView([c.lat, c.lng], c.zoom, {
+        animate: !matchMedia("(prefers-reduced-motion: reduce)").matches,
+      });
+  }, [city, ready]);
+  useEffect(() => {
+    if (!ready || !map.current) return;
+    const m = map.current;
+    for (const s of stores) {
+      const marker = markers.current.get(s.id);
+      if (!marker) continue;
+      const show = filtered.some((x) => x.id === s.id);
+      if (show && !m.hasLayer(marker)) marker.addTo(m);
+      else if (!show && m.hasLayer(marker)) marker.remove();
+    }
+  }, [city, query, ready]);
+  function select(s: Store) {
+    setSelected(s.id);
+    map.current?.setView([s.lat, s.lng], 14, {
+      animate: !matchMedia("(prefers-reduced-motion: reduce)").matches,
+    });
+    markers.current.get(s.id)?.openPopup();
+  }
+  function locate() {
+    if (!navigator.geolocation) {
+      setNotice(
+        "La localisation n’est pas disponible sur cet appareil. Choisis ta ville.",
+      );
+      return;
+    }
+    setLocationBusy(true);
+    navigator.geolocation.getCurrentPosition(
+      async (p) => {
+        const pos = { lat: p.coords.latitude, lng: p.coords.longitude };
+        setPosition(pos);
+        setCity(cities[0].name);
+        setLocationBusy(false);
+        setNotice(
+          "La liste est triée par distance. Les points affichés sont fictifs.",
+        );
+        if (map.current) {
+          const L = await import("leaflet");
+          L.circleMarker([pos.lat, pos.lng], {
+            radius: 8,
+            color: "#fff",
+            fillColor: "#396fe3",
+            fillOpacity: 1,
+            weight: 3,
+          })
+            .addTo(map.current)
+            .bindTooltip("Ta position");
+          map.current.setView([pos.lat, pos.lng], 10);
+        }
+      },
+      (e) => {
+        setLocationBusy(false);
+        setNotice(
+          e.code === 1
+            ? "La localisation n’a pas été autorisée. Choisis simplement ta ville."
+            : "Ta position n’a pas pu être déterminée. Choisis ta ville.",
+        );
+      },
+      { timeout: 10000, maximumAge: 60000 },
+    );
+  }
+  return (
+    <div className="locator">
+      <div className="demo-notice">
+        <span>DÉMONSTRATION</span> Ces {stores.length} points sont fictifs. Ils
+        illustrent le futur réseau et ne sont pas des lieux de vente réels.
+      </div>
+      <div className="locator-toolbar">
+        <label className="search-field">
+          <Search size={18} />
+          <input
+            placeholder="Une ville, un quartier…"
+            aria-label="Rechercher un point de démonstration"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+          />
+        </label>
+        <select
+          aria-label="Choisir une ville"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        >
+          {cities.map((c) => (
+            <option key={c.name}>{c.name}</option>
+          ))}
+          {["Daloa", "Man", "Grand-Bassam"].map((c) => (
+            <option key={c}>{c}</option>
+          ))}
+        </select>
+        <button
+          className="location-button"
+          onClick={locate}
+          disabled={locationBusy}
+        >
+          <LocateFixed size={17} />
+          {locationBusy ? "Localisation…" : "Autour de moi"}
+        </button>
+      </div>
+      {notice && (
+        <p className="map-notice" role="status">
+          {notice}
+        </p>
+      )}
+      <div className="locator-body">
+        <div className="store-list">
+          <p className="results-count" aria-live="polite">
+            {filtered.length} point{filtered.length > 1 ? "s" : ""} de
+            démonstration
+          </p>
+          {filtered.map((s) => (
+            <button
+              key={s.id}
+              className={`store-card ${selected === s.id ? "is-selected" : ""}`}
+              onClick={() => select(s)}
+            >
+              <div>
+                <span className="store-badge">POINT FICTIF</span>
+                {position && (
+                  <small>{distanceKm(position, s).toFixed(1)} km</small>
+                )}
+              </div>
+              <h3>{s.name}</h3>
+              <p>
+                <MapPin size={14} />
+                {s.city}
+              </p>
+              <p>{s.address}</p>
+              <span className="store-view">
+                Voir sur la carte <ArrowUpRight size={16} />
+              </span>
+            </button>
+          ))}
+          {!filtered.length && (
+            <div className="empty-state">
+              <MapPin />
+              <h3>Aucun point pour cette recherche.</h3>
+              <button
+                className="text-link"
+                onClick={() => {
+                  setCity(cities[0].name);
+                  setQuery("");
+                }}
+              >
+                Effacer les filtres
+              </button>
+            </div>
+          )}
+        </div>
+        <div className="map-frame">
+          <div
+            className="map-canvas"
+            ref={container}
+            aria-label="Carte des points de démonstration en Côte d’Ivoire"
+          />
+          {!ready && (
+            <div className="map-loading">
+              <MapIcon />
+              <p>La Côte d’Ivoire se dessine…</p>
+            </div>
+          )}
+          <div className="map-controls">
+            <button
+              onClick={() => map.current?.zoomIn()}
+              aria-label="Zoomer sur la carte"
+            >
+              <Plus size={20} />
+            </button>
+            <button
+              onClick={() => map.current?.zoomOut()}
+              aria-label="Dézoomer sur la carte"
+            >
+              <Minus size={20} />
+            </button>
+          </div>
+          <span className="map-demo-label">
+            ADRESSES FICTIVES · APERÇU DU RÉSEAU
+          </span>
+        </div>
+      </div>
+      <p className="map-privacy">
+        La localisation est facultative, utilisée uniquement dans ton navigateur
+        et n’est pas enregistrée. Fond de carte : OpenStreetMap · Frontières :
+        Natural Earth.
+      </p>
+    </div>
+  );
+}
